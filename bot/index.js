@@ -5,6 +5,8 @@ var client = new AoiClient({
     insensitive: true,
     intents: ["Guilds", "GuildMessages", "MessageContent"],
     plugins: [
+        require("./functions/env"),
+        require("./functions/httpGet"),
         require("./functions/onlyForIDs")
     ],
     prefix: ["."],
