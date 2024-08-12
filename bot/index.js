@@ -1,25 +1,27 @@
 var { AoiClient } = require("../dist");
+var { join } = require("path");
 
 var client = new AoiClient({
     insensitive: true,
-    intents: [
-        "Guilds",
-        "GuildMessages",
-        "MessageContent"
+    intents: ["Guilds", "GuildMessages", "MessageContent"],
+    plugins: [
+        require("./functions/onlyForIDs")
     ],
-    plugins: [],
     prefix: ["."],
     reverse: false,
     token: process.env.TOKEN,
-    units: []
+    units: [],
 });
 
-client.addCommand({
+client.commands.add("readyCommand", {
     name: "uwu",
-    type: "readyCommand",
     code: `
         $log[Hello world!]
-    `
+    `,
 });
+
+client.commands.load(join("bot", "commands"));
+
+client.addEvent("onMessage");
 
 client.login();
