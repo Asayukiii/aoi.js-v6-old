@@ -22,8 +22,12 @@ var client = new AoiClient({
 client.commands.add("readyCommand", {
     name: "uwu",
     code: `
-        $httpGet[https://jsonplaceholder.typicode.com/todos/1]
-        $log[$env[res;userId]]
+        $if[true;
+            $let[url;https://jsonplaceholder.typicode.com/todos/1]
+            $httpGet[$get[url]]
+            $log[[aoi.js\\] - $packageVersion :: Testing http -> $environment[res;userId]]
+        ]
+        $log[[aoi.js\\] - $packageVersion :: $username[$clientID] is connected to the gateway.]
     `,
 });
 
