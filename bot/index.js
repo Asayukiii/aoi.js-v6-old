@@ -22,8 +22,8 @@ var client = new AoiClient({
 client.commands.add("readyCommand", {
     name: "uwu",
     code: `
-        $httpGet[https://jsonplaceholder.typicode.com/todos/1;ok]
-        $log[$env[ok;userId]]
+        $httpGet[https://jsonplaceholder.typicode.com/todos/1]
+        $log[$env[res;userId]]
     `,
 });
 
