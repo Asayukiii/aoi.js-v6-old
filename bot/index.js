@@ -3,13 +3,17 @@ var { join } = require("path");
 
 var client = new AoiClient({
     insensitive: true,
-    intents: ["Guilds", "GuildMessages", "MessageContent"],
-    plugins: [
-        require("./functions/env"),
-        require("./functions/httpGet"),
-        require("./functions/onlyForIDs")
+    intents: [
+        "Guilds",
+        "GuildMessages",
+        "MessageContent"
     ],
-    prefix: ["."],
+    plugins: [
+        "./bot/functions/"
+    ],
+    prefix: [
+        "."
+    ],
     reverse: false,
     token: process.env.TOKEN,
     units: [],
@@ -18,7 +22,8 @@ var client = new AoiClient({
 client.commands.add("readyCommand", {
     name: "uwu",
     code: `
-        $log[Hello world!]
+        $httpGet[https://jsonplaceholder.typicode.com/todos/1;ok]
+        $log[$env[ok;userId]]
     `,
 });
 

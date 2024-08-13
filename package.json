@@ -13,6 +13,7 @@
     "axios": "^0.27.2",
     "discord-api-types": "^0.36.3-next.907d88a.1657972624",
     "discord.js": "^14.3.0",
+    "hjson": "^3.2.2",
     "ms-utility": "^3.2.0"
   },
   "repository": {
@@ -39,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/AkaruiDevelopment/aoi.js-source/issues"
   },
-  "homepage": "https://github.com/AkaruiDevelopment/aoi.js-source#readme"
+  "homepage": "https://github.com/AkaruiDevelopment/aoi.js-source#readme",
+  "devDependencies": {
+    "@types/hjson": "^2.4.6"
+  }
 }
